@@ -9,4 +9,8 @@ html
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   body
-    = yield
+    = render 'navigation'
+    = render 'header'
+    .container
+      = yield
+    = render 'footer'

@@ -1,2 +1,15 @@
-.containner.py-5
-  h1 Welcome to my blog
+#articles
+  .row.gx-4.gx-lg-5.justify-content-center
+    .col-md-10.col-lg-8.col-xl-7
+      ul.latest_articles
+        - @latest_articles.each do |article|
+          - unless article.archived?
+            li.post-preview
+              = link_to article do
+                h2.post-title = article.title
+                h3.post-subtitle = article.body.truncate_words(10)
+                hr.my-4
+      .d-flex.justify-content-end.mb-4
+        = link_to articles_path, class: "btn btn-primary text-uppercase" do
+          span Older Articles
+          i.fa-solid.fa-arrow-right
